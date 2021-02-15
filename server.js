@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 const colors = require('colors');
@@ -16,6 +17,9 @@ const test = require('./routes/devtest'); // TODO only for dev!
 
 // define express app
 const app = express();
+
+// use cors
+app.use(cors());
 
 // define body parser
 app.use(express.json());
