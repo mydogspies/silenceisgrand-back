@@ -12,8 +12,9 @@ dotenv.config({path: './config/config.env'});
 // connect to db
 connectDB();
 
-// route TEST files
-const test = require('./routes/devtest'); // TODO only for dev!
+// import the routes
+const blogs = require('./routes/blogs');
+const contents = require('./routes/contents');
 
 // define express app
 const app = express();
@@ -30,7 +31,8 @@ if(process.env.NODE_ENV !== 'development') {
 }
 
 // mount routers
-app.use('/api/v1/test', test); // TODO only for dev!
+app.use('/api/v1/blogs', blogs);
+app.use('/api/v1/contents', contents);
 
 // error handler
 app.use(errorHandler);
