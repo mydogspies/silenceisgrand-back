@@ -4,7 +4,8 @@ const BlogSchema = new mongoose.Schema({
     name: {
         type: 'string',
         required: true,
-        unique: true
+
+
     },
     body: {
         type: 'string',
