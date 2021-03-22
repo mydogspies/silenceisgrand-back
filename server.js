@@ -16,6 +16,7 @@ connectDB();
 const blogs = require('./routes/blogs');
 const contents = require('./routes/contents');
 const devtests = require('./routes/devtests');
+const paths = require('./routes/paths');
 
 // define express app
 const app = express();
@@ -35,6 +36,7 @@ if(process.env.NODE_ENV !== 'development') {
 app.use('/api/v1/blogs', blogs);
 app.use('/api/v1/contents', contents);
 app.use('/api/v1/devtests', devtests);
+app.use('/api/v1/paths', paths);
 
 // error handler
 app.use(errorHandler);
