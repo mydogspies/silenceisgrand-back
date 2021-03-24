@@ -15,6 +15,12 @@ const ContentSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    shortName: {
+        type: 'string',
+        maxlength: 25,
+        required: true,
+        unique: true
+    },
     fileName: {
         type: 'string',
         contentType: String,

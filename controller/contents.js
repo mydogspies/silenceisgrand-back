@@ -20,7 +20,21 @@ exports.getAllContents = asyncHandler(async (req, res, next) => {
 exports.getContentById = asyncHandler(async (req, res, next) => {
     const content = await Content.findById(req.params.id);
     if (!content) {
-        return next(new ErrorResponse(`No blogs found!`, 404));
+        return next(new ErrorResponse(`No content found!`, 404));
+    }
+    res.status(200).json({
+        success: true,
+        data: content
+    })
+});
+
+// @desc    Get content by its shortName
+// @route   GET /api/v1/contents/search/:name
+// @access  Public
+exports.getContentByShortName = asyncHandler(async (req, res, next) => {
+    const content = await Content.findOne({shortName: req.params.name});
+    if(!content) {
+        return next(new ErrorResponse('No content found', 404));
     }
     res.status(200).json({
         success: true,
@@ -48,7 +62,7 @@ exports.updateContent = asyncHandler(async (req, res, next) => {
         runValidators: true
     });
     if (!content) {
-        return next(new ErrorResponse(`Blog not found with id ${req.params.id}`, 404));
+        return next(new ErrorResponse(`Content not found with id ${req.params.id}`, 404));
     }
     res.status(200).json({
         success: true,
@@ -62,7 +76,7 @@ exports.updateContent = asyncHandler(async (req, res, next) => {
 exports.deleteContent = asyncHandler(async (req, res, next) => {
     const content = await Content.findByIdAndDelete(req.params.id);
     if (!content) {
-        return next(new ErrorResponse(`Blog not found with id ${req.params.id}`, 404));
+        return next(new ErrorResponse(`Content not found with id ${req.params.id}`, 404));
     }
     res.status(200).json({
         success: true,
