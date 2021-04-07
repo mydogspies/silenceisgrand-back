@@ -21,12 +21,12 @@ const devtests = require('./routes/devtests');
 const app = express();
 
 const corsOptions = {
-    origin: 'http://localhost',
+    origin: 'http://localhost:3005',
     optionsSuccessStatus: 200
 };
 
 // use cors
-app.use(cors());
+app.use(cors(corsOptions));
 
 // define body parser
 app.use(express.json());

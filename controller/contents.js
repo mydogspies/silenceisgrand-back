@@ -1,4 +1,5 @@
 const Content = require('../model/Content');
+const ContentSet = require('../model/ContentSet');
 const ErrorResponse = require('../utils/errorResponse');
 const asyncHandler = require('../middleware/async');
 
@@ -47,6 +48,17 @@ exports.getContentByShortName = asyncHandler(async (req, res, next) => {
 // @access  Private
 exports.createContent = asyncHandler(async (req, res, next) => {
     const content = await Content.create(req.body);
+    res.status(200).json({
+        success: true,
+        data: content
+    })
+});
+
+// @desc    Create a new entry of type ContentSet
+// @route   POST /api/v1/contents/set
+// @access  Private
+exports.createContentSet = asyncHandler(async (req, res, next) => {
+    const content = await ContentSet.create(req.body);
     res.status(200).json({
         success: true,
         data: content

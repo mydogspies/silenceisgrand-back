@@ -6,6 +6,10 @@ const ContentSetSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    location: {
+        type: 'string',
+        required: true
+    },
     contentList: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Content',
@@ -13,6 +17,9 @@ const ContentSetSchema = new mongoose.Schema({
         default: []
     }],
     description: {
+        type: 'string'
+    },
+    viewName: {
         type: 'string'
     }
 });

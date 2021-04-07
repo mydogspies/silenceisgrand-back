@@ -6,7 +6,8 @@ const {
     createContent,
     updateContent,
     deleteContent,
-    getContentByShortName
+    getContentByShortName,
+    createContentSet
 } = require('../controller/contents');
 
 const router = express.Router();
@@ -25,5 +26,9 @@ router
 router
     .route('/search/:name')
     .get(getContentByShortName);
+
+router
+    .route('/set')
+    .post(createContentSet);
 
 module.exports = router;
