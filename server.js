@@ -15,7 +15,6 @@ connectDB();
 // import the routes
 const blogs = require('./routes/blogs');
 const contents = require('./routes/contents');
-const devtests = require('./routes/devtests');
 
 // define express app
 const app = express();
@@ -39,8 +38,6 @@ if(process.env.NODE_ENV !== 'development') {
 // mount routers
 app.use('/api/v1/blogs', blogs);
 app.use('/api/v1/contents', contents);
-app.use('/api/v1/devtests', devtests);
-
 // error handler
 app.use(errorHandler);
 
