@@ -1,6 +1,6 @@
 const ErrorResponse = require('../utils/errorResponse');
 const asyncHandler = require('../middleware/async');
-const db = require("../model");
+const db = require('../model');
 const DevTest = db.devtest;
 const Op = db.Sequelize.Op;
 
