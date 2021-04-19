@@ -39,7 +39,7 @@ if(process.env.NODE_ENV !== 'development') {
 // mount routers
 app.use('/api/v1/blogs', blogs);
 app.use('/api/v1/contents', contents);
-app.use('api/v1/status', status);
+app.use('/api/v1/status', status);
 // error handler
 app.use(errorHandler);
 
