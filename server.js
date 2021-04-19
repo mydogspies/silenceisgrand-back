@@ -4,13 +4,13 @@ const dotenv = require('dotenv');
 const morgan = require('morgan');
 const colors = require('colors');
 const errorHandler = require('./middleware/error');
-const connectDB = require('./config/db');
+const db = require('./model/');
 
 // load env vars
 dotenv.config({path: './config/config.env'});
 
 // connect to db
-connectDB();
+db.sequelize.sync();
 
 // import the routes
 const blogs = require('./routes/blogs');
