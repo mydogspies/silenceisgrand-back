@@ -20,7 +20,8 @@ const contents = require('./routes/contents');
 const app = express();
 
 const corsOptions = {
-    origin: 'http://localhost:3005',
+    // origin: 'http://localhost:3005',
+    origin: 'https://api.silenceisgrand.com',
     optionsSuccessStatus: 200
 };
 
