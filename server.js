@@ -9,6 +9,8 @@ const db = require('./model/');
 // load env vars
 dotenv.config({path: './config/config.env'});
 
+// test text 1
+
 // connect to db
 db.sequelize.sync();
 
