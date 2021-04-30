@@ -9,7 +9,7 @@ const db = require('./model/');
 // load env vars
 dotenv.config({path: './config/config.env'});
 
-// test text 1234567890
+// test text 12345678901
 
 // connect to db
 db.sequelize.sync();
