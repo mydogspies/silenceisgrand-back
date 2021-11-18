@@ -1,6 +1,7 @@
-import { Injectable, Inject } from '@nestjs/common';
-import { Status } from './status.model';
+import {Inject, Injectable} from '@nestjs/common';
+import {Status} from './status.model';
 import {STATUS_REPOSITORY} from "./constants";
+import {statusDto} from "./status.dto";
 
 @Injectable()
 export class StatusService {
@@ -11,8 +12,8 @@ export class StatusService {
         return await this.statusRepository.findAll<Status>();
     }
 
-    async update(id, setStatus) {
-        const [numberOfAffectedRows] = await this.statusRepository.update({ ...setStatus }, { where: { id: id}, returning: true });
-        return {numberOfAffectedRows};
+    // TODO want something more verbose to be sent back than the weird object coming out of update()
+    async update(rowId: number, setStatus: statusDto) {
+        return await this.statusRepository.update({...setStatus}, {where: {id: rowId}});
     }
 }
