@@ -1,10 +1,10 @@
-![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/mydogspies/silenceisgrand-back) ![GitHub last commit](https://img.shields.io/github/last-commit/mydogspies/silenceisgrand-back) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mydogspies/silenceisgrand-back) 
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/mydogspies/silenceisgrand-back) ![GitHub last commit](https://img.shields.io/github/last-commit/mydogspies/silenceisgrand-back) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mydogspies/silenceisgrand-back)
 ## SILENCEISGRAND.COM - backend API
 
 Silenceisgrand.com is a visual art project run by Berlin-based visual artist Silenceisgrand.
 The project can be found at [https://www.silenceisgrand.com] and is part of several art
 projects. As a firm believer in open source and copy-left license forms, the source code for
-this project can be found here. This repo is the NodeJS backend of this site.
+this project can be found here. This repo is the NestJS backend.
 
 ####IMPORTANT
 
