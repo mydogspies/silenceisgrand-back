@@ -1,4 +1,4 @@
-import {Inject, Injectable} from '@nestjs/common';
+import {Inject, Injectable, NotFoundException} from '@nestjs/common';
 import {Status} from './status.model';
 import {STATUS_REPOSITORY} from "./constants";
 import {statusDto} from "./status.dto";
@@ -12,8 +12,17 @@ export class StatusService {
         return await this.statusRepository.findAll<Status>();
     }
 
-    // TODO want something more verbose to be sent back than the weird object coming out of update()
     async update(rowId: number, setStatus: statusDto) {
-        return await this.statusRepository.update({...setStatus}, {where: {id: rowId}});
+        const query= await this.statusRepository.update({...setStatus}, {where: {id: rowId}});
+        let res: object = {};
+        if (query[0]==0) {
+            throw new NotFoundException('No such entry.');
+        } else {
+            res = {
+                success: true,
+                message: 'Site status updated'
+            }
+        }
+        return res;
     }
 }
